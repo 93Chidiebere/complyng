@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 211 62% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 211 62% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 211 62% 13%;
+
+    /* Dark navy #0D2137 */
+    --primary: 210 62% 13%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Teal #028090 */
+    --secondary: 187 97% 29%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Teal accent */
+    --accent: 187 97% 29%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Coral red #E55B4D */
+    --destructive: 5 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 187 97% 29%;
+
+    --radius: 0.5rem;
+
+    /* Brand tokens */
+    --navy: 210 62% 13%;
+    --teal: 187 97% 29%;
+    --teal-hover: 187 97% 24%;
+    --coral: 5 75% 60%;
+    --amber: 38 92% 50%;
+    --success: 142 71% 40%;
+    --surface: 210 40% 98%;
+    --card-border: 214 32% 91%;
+
+    --shadow-card: 0 1px 3px 0 hsl(210 40% 20% / 0.06), 0 1px 2px -1px hsl(210 40% 20% / 0.04);
+    --shadow-card-hover: 0 4px 12px -2px hsl(210 40% 20% / 0.08);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .card-cn {
+    @apply bg-card border border-border rounded-lg;
+    box-shadow: var(--shadow-card);
+  }
+  .card-cn-active {
+    @apply card-cn relative overflow-hidden pl-5;
+  }
+  .card-cn-active::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-teal;
+  }
+  .btn-teal {
+    @apply inline-flex items-center justify-center gap-2 bg-teal text-white font-semibold px-5 py-2.5 rounded-md transition-colors hover:bg-[hsl(var(--teal-hover))] focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2;
+  }
+  .btn-teal-outline {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-teal text-teal font-semibold px-5 py-2 rounded-md transition-colors hover:bg-teal hover:text-white focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border;
+  }
+}
